@@ -1,10 +1,31 @@
+from enum import Enum
 from typing import Optional
 
 
+class TextType(Enum):
+    TEXT = "text"
+    BOLD = "bold"
+    ITALIC = "italic"
+    CODE = "code"
+    LINK = "link"
+    IMAGE = "image"
+
+
+class TextTypeDelimiter(Enum):
+    TEXT = ""
+    BOLD = "**"
+    ITALIC = "*"
+    CODE = "`"
+    LINK = "[]"
+    IMAGE = "!"
+
+
 class TextNode:
-    def __init__(self, text: str, text_type: str, url: Optional[str] = None) -> None:
+    def __init__(
+        self, text: str, text_type: TextType, url: Optional[str] = None
+    ) -> None:
         self.text = text
-        self.text_type = text_type
+        self.text_type = text_type.value
         self.url = url
 
     def __eq__(self, other: object):
@@ -19,12 +40,3 @@ class TextNode:
 
     def __repr__(self):
         return f"TextNode({self.text}, {self.text_type}, {self.url})"
-
-
-def main():
-    node = TextNode("This is a text node", "bold", "https://www.boot.dev")
-    print(node)
-
-
-if __name__ == "__main__":
-    main()
