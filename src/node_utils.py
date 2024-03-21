@@ -30,6 +30,10 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode:
     raise ValueError(f"Unknown text type: {text_node.text_type}")
 
 
+def leafnodes_to_html(leafnodes: List[LeafNode]) -> str:
+    return "".join([leafnode.to_html() for leafnode in leafnodes])
+
+
 def split_nodes_delimiter(
     old_nodes: List[TextNode],
     delimiter: TextTypeDelimiter,
