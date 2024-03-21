@@ -4,13 +4,13 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 
 
 class CORSHTTPRequestHandler(SimpleHTTPRequestHandler):
-    def end_headers(self):
+    def end_headers(self) -> None:
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "*")
         super().end_headers()
 
-    def do_OPTIONS(self):
+    def do_OPTIONS(self) -> None:
         self.send_response(200, "OK")
         self.end_headers()
 
@@ -20,7 +20,7 @@ def run(
     handler_class=CORSHTTPRequestHandler,
     port=8000,
     directory=None,
-):
+) -> None:
     if directory:  # Change the current working directory if directory is specified
         os.chdir(directory)
     server_address = ("", port)

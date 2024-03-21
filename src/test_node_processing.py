@@ -5,7 +5,7 @@ from textnode import TextNode, TextType
 
 
 class TestSplitImages(unittest.TestCase):
-    def test_split_one_image(self):
+    def test_split_one_image(self) -> None:
         node = TextNode(
             "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png) isn't it?",
             TextType.TEXT,
@@ -28,7 +28,7 @@ class TestSplitImages(unittest.TestCase):
 
 
 class TestSplitLinks(unittest.TestCase):
-    def test_split_one_link(self):
+    def test_split_one_link(self) -> None:
         node = TextNode(
             "This is text with one [link](https://www.boot.dev).",
             TextType.TEXT,
@@ -45,7 +45,7 @@ class TestSplitLinks(unittest.TestCase):
             new_nodes,
         )
 
-    def test_split_two_links(self):
+    def test_split_two_links(self) -> None:
         node = TextNode(
             "This is text with a [link](https://www.boot.dev) and another [second link](https://www.boot.dev) wow!",
             TextType.TEXT,

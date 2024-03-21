@@ -4,10 +4,10 @@ from htmlnode import HTMLNode
 
 
 class TestHtmlNode(unittest.TestCase):
-    def test_props_to_html(self):
+    def test_props_to_html(self) -> None:
         node = HTMLNode("p", "This is a paragraph", [], {"class": "paragraph"})
         self.assertEqual(node.props_to_html(), 'class="paragraph"')
 
-    def test_props_to_html_empty(self):
+    def test_props_to_html_empty(self) -> None:
         node = HTMLNode("p", "This is a paragraph")
         self.assertEqual(node.props_to_html(), "")

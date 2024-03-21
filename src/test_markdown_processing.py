@@ -4,7 +4,7 @@ from markdown_processing import markdown_to_blocks
 
 
 class TestMarkDownToBlocks(unittest.TestCase):
-    def test_markdown_to_blocks(self):
+    def test_markdown_to_blocks(self) -> None:
         self.maxDiff = None
         text = """This is **bolded** paragraph
 
