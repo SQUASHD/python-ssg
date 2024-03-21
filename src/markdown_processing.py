@@ -85,7 +85,7 @@ def olist_to_html(list: str) -> str:
     return f"<ol>{''.join(items)}</ol>"
 
 
-def markdown_to_html_node(text: str) -> str:
+def markdown_to_html(text: str) -> str:
     blocks = markdown_to_blocks(text)
     html_blocks = [block_to_html(block) for block in blocks]
     return f"<div>{''.join(html_blocks)}</div>"
